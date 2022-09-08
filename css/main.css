@@ -1,0 +1,28 @@
+body{
+    margin: 0;
+    padding: 0;
+    /* box-sizing: border-box; */
+    background-color: aqua;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+h2{
+    
+}
+.goods{
+    
+}
+.good{
+    width: 1000px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 3px solid black;
+}
+span{
+    font-size: 50px;
+}
+.main{
+    width: 1000px;
+    display: flex;
+    justify-content:space-between;
+}
