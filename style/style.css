@@ -1,0 +1,40 @@
+
+*{
+ 
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: #378374;
+}
+.form{
+    display: flex;
+    justify-content: center;
+    
+}
+.main_table{
+    margin-top: 40px;
+}
+
+.table{
+    /* margin-top: 10px;
+    margin-right: 100px;
+    display: flex;
+    justify-content:center; */
+    
+}
+/* .enter{
+
+    width: 200px;
+} */
+.word_translated{
+    display: block;
+    justify-content: center;
+    
+}
+.word_translaing{
+    margin-right: 200px;
+    display: block;
+    justify-content: center;
+}
