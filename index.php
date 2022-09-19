@@ -1,72 +1,38 @@
 <?php
-include "assets/connect.php";
-$query="SELECT word_translaing FROM `dictionary_db` ORDER BY id DESC";
-$query2="SELECT word_translated FROM `dictionary_db` ORDER BY id DESC";
-$result = mysqli_query($induction,$query);
-$result2=mysqli_query($induction,$query2);
-
-
+session_start();
+if ($_SESSION['user']) {
+    header("Location: profile.php");
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <title>Your memory</title>
-    <link rel="stylesheet" href="style/style.css">
-
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/auth.css">
+    <title>Авторизация</title>
 </head>
 
 <body>
-    <div class="hero">
-        
-        <div class="form">
-            <form method="POST" action="assets\typeword.php">
-                <input name="word_translaing" type="text" placeholder="Введите слово"  class="type_one"/ >
-                <input name="word_translated" type="text" placeholder="Введите его перевод"   class="type_two" />
-                <input type="submit" value="Отправить" name="submit" class="submit" />
-
-
-            </form>
-        </div>
-        <div class="main">
+    <form action="vendor/auth/signin.php" method="post">
+        <label>Логин</label>
+        <input type="text" placeholder="Ввидите логин"  name="login">
+        <label>Пороль</label>
+        <input type="password" placeholder="Ввидите пороль"  name="password">
+        <button type="submit">Авторизаваться</button>
+        <p><a href="register.php" class="reg">Регестрация</a></p><a href="input_hesh.php" class="reg">Авторизаваться через хеш</a></p>
         <?php
-        //  echo "<span class='class'>" ."авпавпю". $text . "</span>";
-        
-        while ($dictionary_db = mysqli_fetch_assoc($result)) {
-        ?>
-               
-
-               <div class="column">  <div class="word_translaing"> <h2><?php echo $dictionary_db['word_translaing']; ?></h2></div>
-                   
-
-            
-        <?php
-
+        if ($_SESSION['message']) {
+            echo '<p class="msg"> ' . $_SESSION['message'] . ' </p>';
         }
-        while ($dictionary_db = mysqli_fetch_assoc($result2)) {
-            ?>
-                    
-    
-                    
-                       <div class="word_translated"> <h2><?php echo $dictionary_db['word_translated']; ?></h2></div></div>
-                       
-    
-                
-            <?php
-    
-            }
-           
+        unset($_SESSION['message']);
+
+
         ?>
-        </div>
-           
-
-    </div>
-
-
-
-
-
+    </form>
 </body>
 
 </html>
